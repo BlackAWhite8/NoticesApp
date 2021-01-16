@@ -33,10 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         prefs = getSharedPreferences("notices_text", Context.MODE_PRIVATE);
         editor = prefs.edit();
         noticesList = new ArrayList<>();
+        
         len = prefs.getInt("ListLength",0);
         for(int i = 0; i < len ;i++) {
             noticesList.add(prefs.getString("NoticeText"+i,""));
         }
+
         adapter = new ArrayAdapter<>(this,R.layout.notices_list_item,noticesList);
         add.setOnClickListener(this);
         listView.setAdapter(adapter);
