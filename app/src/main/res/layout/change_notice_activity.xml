@@ -7,16 +7,25 @@
     android:background="@color/black">
 
     <Button
-        android:id="@+id/doneButton"
+        android:id="@+id/applyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/doneButton" />
+        android:text="@string/commitButton" />
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/delButton" />
+
 
     <EditText
-        android:id="@+id/noticeFieldForCreate"
+        android:id="@+id/noticeFieldForChange"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
@@ -28,5 +37,4 @@
         android:inputType="textMultiLine"
         android:scrollbars="vertical"
         android:textCursorDrawable="@drawable/cursor_color" />
-
 </RelativeLayout>

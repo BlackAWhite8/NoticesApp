@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent addMenu = new Intent(MainActivity.this, CreateNoticeActivity.class);
+                Intent addMenu = new Intent(MainActivity.this, ChangeNoticeActivity.class);
                 pos = position;
                 addMenu.putExtra("text",noticesList.get(position));
                 startActivityForResult(addMenu,2);
@@ -74,8 +74,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (requestCode == 2) {
             if (resultCode==RESULT_OK) {
-                String noteText = data.getStringExtra("note");
-                noticesList.set(pos,noteText);
+                boolean isDelFlag = data.getBooleanExtra("flag",false);
+                if(!isDelFlag) {
+                    String noteText = data.getStringExtra("changedNote");
+                    noticesList.set(pos, noteText);
+                }
+                else {
+                    noticesList.remove(pos);
+                }
                 adapter.notifyDataSetChanged();
             }
         }

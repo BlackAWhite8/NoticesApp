@@ -11,19 +11,15 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CreateNoticeActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText textGetter;
     private Button done;
-    private String noticetext;
     Intent data = new Intent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notice_create_activity);
-        textGetter = findViewById(R.id.noticeField);
-        if (getIntent().getStringExtra("text") != null) {
-            noticetext = getIntent().getStringExtra("text");
-            textGetter.setText(noticetext);
-        }
+        textGetter = findViewById(R.id.noticeFieldForCreate);
         done = findViewById(R.id.doneButton);
         done.setOnClickListener(this);
+
 
 
     }

@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="doneButton">Done</string>
     <string name="hintInNotice">Notice start here</string>
+    <string name="commitButton">Apply</string>
+    <string name="delButton">Delete</string>
 </resources>
