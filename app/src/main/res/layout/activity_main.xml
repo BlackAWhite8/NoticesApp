@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,20 +8,32 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     android:background="@color/black">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="44dp"
+        android:elevation="@dimen/fab_margin"
+        android:src="@drawable/add_symbol" />
+
     <Button
         android:id="@+id/createButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="30dp"
         android:layout_marginRight="10dp"
-        android:text="Add"
-        android:background="@drawable/create_button" />
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/create_button"/>
+
     <ListView
         android:id="@+id/ListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@color/black"
-        android:dividerHeight="@dimen/divider"/>
+        android:dividerHeight="@dimen/divider"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,7 +13,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/commitButton" />
+        android:text="@string/commitButton"
+        android:background="@color/black"/>
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
@@ -21,7 +22,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/delButton" />
+        android:text="@string/delButton"
+        android:background="@color/black"/>
 
 
     <EditText
