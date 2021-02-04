@@ -2,15 +2,19 @@ package com.example.noticesapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ChangeNoticeActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button delButton,applyButton;
+    private ImageButton applyButton;
     private EditText textGetter;
     private String noticetext;
     private boolean isDeleteNotice = false;
@@ -18,15 +22,33 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change_notice_activity);
-        delButton = findViewById(R.id.deleteButton);
         applyButton = findViewById(R.id.applyButton);
         textGetter = findViewById(R.id.noticeFieldForChange);
-        delButton.setOnClickListener(this);
         applyButton.setOnClickListener(this);
         if (getIntent().getStringExtra("text") != null) {
             noticetext = getIntent().getStringExtra("text");
             textGetter.setText(noticetext);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.delete_function:
+                isDeleteNotice = true;
+                data.putExtra("flag", isDeleteNotice);
+                setResult(RESULT_OK, data);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.change_notice_menu,menu);
+        return true;
     }
 
     @Override
@@ -37,11 +59,9 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
                 data.putExtra("flag",isDeleteNotice);
                 setResult(RESULT_OK,data);
                 finish();
-            case R.id.deleteButton:
-                isDeleteNotice = true;
-                data.putExtra("flag",isDeleteNotice);
-                setResult(RESULT_OK,data);
-                finish();
+
         }
     }
 }
+
+

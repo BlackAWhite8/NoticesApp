@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.noticesapp.ChangeNoticeActivity">
+    <item
+        android:id="@+id/delete_function"
+        android:orderInCategory="100"
+        android:title="@string/delete_note"
+        app:showAsAction="never"/>
+</menu>
