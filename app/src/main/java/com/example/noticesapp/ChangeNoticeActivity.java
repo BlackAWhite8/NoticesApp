@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -19,6 +20,7 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
     private String noticetext;
     private boolean isDeleteNotice = false;
     Intent data = new Intent();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.change_notice_activity);
@@ -47,7 +49,7 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.change_notice_menu,menu);
+        getMenuInflater().inflate(R.menu.change_notice_menu, menu);
         return true;
     }
 
@@ -55,9 +57,9 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.applyButton:
-                data.putExtra("changedNote",textGetter.getText().toString());
-                data.putExtra("flag",isDeleteNotice);
-                setResult(RESULT_OK,data);
+                data.putExtra("changedNote", textGetter.getText().toString());
+                data.putExtra("flag", isDeleteNotice);
+                setResult(RESULT_OK, data);
                 finish();
 
         }

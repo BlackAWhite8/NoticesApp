@@ -3,6 +3,7 @@ package com.example.noticesapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -28,8 +29,8 @@ public class CreateNoticeActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.doneButton:
-                data.putExtra("note",textGetter.getText().toString());
-                setResult(RESULT_OK,data);
+                data.putExtra("note", textGetter.getText().toString());
+                setResult(RESULT_OK, data);
                 finish();
                 break;
         }

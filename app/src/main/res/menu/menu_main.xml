@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.noticesapp.MainActivity">
+    tools:context="com.example.noticesapp.ChangeNoticeActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/delete_function"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/delButton"
         app:showAsAction="never" />
 </menu>
