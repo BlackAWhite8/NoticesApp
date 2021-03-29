@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">NoticesApp</string>
+    <string name="app_name">Notes</string>
     <string name="action_settings">Settings</string>
-    <string name="doneButton">Done</string>
+    <string name="doneButton">Create</string>
     <string name="hintInNotice">Note</string>
-    <string name="commitButton">Apply</string>
+    <string name="commitButton">Apply changes</string>
     <string name="delButton">Delete</string>
     <string name="delete_note">delete</string>
 </resources>

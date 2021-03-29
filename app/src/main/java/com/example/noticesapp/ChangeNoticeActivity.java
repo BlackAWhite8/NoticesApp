@@ -15,9 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ChangeNoticeActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageButton applyButton;
+    private Button applyButton;
     private EditText textGetter;
-    private String noticetext;
     private boolean isDeleteNotice = false;
     Intent data = new Intent();
 
@@ -28,7 +27,7 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
         textGetter = findViewById(R.id.noticeFieldForChange);
         applyButton.setOnClickListener(this);
         if (getIntent().getStringExtra("text") != null) {
-            noticetext = getIntent().getStringExtra("text");
+            String noticetext = getIntent().getStringExtra("text");
             textGetter.setText(noticetext);
         }
     }
