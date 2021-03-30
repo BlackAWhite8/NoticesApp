@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -11,21 +13,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button add;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> noticesList;
     private ListView listView;
     private int pos;
     private int len;
-    SharedPreferences prefs;
-    SharedPreferences.Editor editor;
+    SharedPreferences prefs, archivePrefs;
+    SharedPreferences.Editor editor, archiveEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.ListView);
         add = findViewById(R.id.createButton);
+        archivePrefs = getSharedPreferences("archive", Context.MODE_PRIVATE);
+        archiveEditor = archivePrefs.edit();
         prefs = getSharedPreferences("notices_text", Context.MODE_PRIVATE);
         editor = prefs.edit();
         noticesList = new ArrayList<>();
@@ -52,6 +59,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addMenu.putExtra("text", noticesList.get(position));
                 startActivityForResult(addMenu, 2);
 
+            }
+        });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                int archLen = archivePrefs.getInt("length", 0);
+                archLen += 1;
+                archiveEditor.putInt("length", archLen);
+                archiveEditor.putString("item"+(archLen-1),noticesList.get(position));
+                archiveEditor.apply();
+                noticesList.remove(position);
+                adapter.notifyDataSetChanged();
+                Toast toast = Toast.makeText(getApplicationContext(),"this note was moved to the archive", Toast.LENGTH_LONG);
+                toast.show();
+                return false;
             }
         });
     }
@@ -89,6 +112,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else {
             super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_activity_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.arch_button:
+                Intent archiveMenu = new Intent(MainActivity.this, ArchiveActivity.class);
+                startActivityForResult(archiveMenu, 3);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

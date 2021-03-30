@@ -24,11 +24,16 @@
         <activity
             android:label="@string/app_name"
             android:name=".CreateNoticeActivity"
-            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
+
         <activity 
             android:name=".ChangeNoticeActivity"
             android:label="Note Menu -->"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ArchiveActivity"
+            android:label="Archive"
             android:screenOrientation="portrait"/>
 
     </application>

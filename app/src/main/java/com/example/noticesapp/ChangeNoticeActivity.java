@@ -33,6 +33,12 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.change_notice_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete_function:
@@ -46,11 +52,6 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.change_notice_menu, menu);
-        return true;
-    }
 
     @Override
     public void onClick(View v) {
