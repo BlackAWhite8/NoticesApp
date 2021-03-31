@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -74,6 +75,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 adapter.notifyDataSetChanged();
                 Toast toast = Toast.makeText(getApplicationContext(),"this note was moved to the archive", Toast.LENGTH_LONG);
                 toast.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        listView.setEnabled(true);
+                    }
+                },1000);
+                listView.setEnabled(false);
                 return false;
             }
         });
@@ -87,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(createMenu, 1);
         }
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -153,5 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         editor.apply();
     }
+
+
 }
 

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.TimeUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ArchiveActivity extends AppCompatActivity  {
     SharedPreferences archivePrefs, prefs;
@@ -67,9 +71,18 @@ public class ArchiveActivity extends AppCompatActivity  {
                 adapter.notifyDataSetChanged();
                 Toast toast = Toast.makeText(getApplicationContext(),"this note was moved back to the main menu", Toast.LENGTH_LONG);
                 toast.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        listView.setEnabled(true);
+                    }
+                },1000);
+                listView.setEnabled(false);
                 return false;
             }
         });
+
     }
 
     @Override
