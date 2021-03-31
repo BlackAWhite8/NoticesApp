@@ -5,5 +5,5 @@
     <string name="hintInNotice">Note</string>
     <string name="commitButton">Apply changes</string>
     <string name="delButton">Delete</string>
-    <string name="delete_note">delete</string>
+    <string name="delete_note">delete note</string>
 </resources>

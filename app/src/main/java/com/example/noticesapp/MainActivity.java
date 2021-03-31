@@ -106,6 +106,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else {
                     noticesList.remove(pos);
+
+                }
+                adapter.notifyDataSetChanged();
+            }
+        }
+        else if (requestCode == 3) {
+            if (resultCode==RESULT_OK) {
+                noticesList.clear();
+                len = prefs.getInt("ListLength", 0);
+                for(int i = 0; i < len ;i++) {
+                    noticesList.add(prefs.getString("NoticeText"+i, ""));
                 }
                 adapter.notifyDataSetChanged();
             }

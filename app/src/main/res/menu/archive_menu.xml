@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.noticesapp.ArchiveActivity">
+    <item
+        android:id="@+id/back_arch_button"
+        android:orderInCategory="100"
+        android:title="back to the Main menu"
+        app:showAsAction="never" />
+</menu>
