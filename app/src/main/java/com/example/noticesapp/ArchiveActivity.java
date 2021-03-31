@@ -64,7 +64,6 @@ public class ArchiveActivity extends AppCompatActivity  {
                 noticesList.remove(position);
                 archiveEditor.putInt("length", noticesList.size());
                 archiveEditor.apply();
-                archiveEditor.apply();
                 adapter.notifyDataSetChanged();
                 Toast toast = Toast.makeText(getApplicationContext(),"this note was moved back to the main menu", Toast.LENGTH_LONG);
                 toast.show();
