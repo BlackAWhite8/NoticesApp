@@ -36,6 +36,7 @@
             android:label="Архив"
             android:screenOrientation="portrait"/>
 
+
     </application>
 
 </manifest>
