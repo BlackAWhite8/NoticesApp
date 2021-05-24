@@ -6,6 +6,6 @@
     <item
         android:id="@+id/arch_button"
         android:orderInCategory="100"
-        android:title="Archive"
+        android:title="архив"
         app:showAsAction="never" />
 </menu>

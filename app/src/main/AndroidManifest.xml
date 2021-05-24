@@ -28,12 +28,12 @@
 
         <activity 
             android:name=".ChangeNoticeActivity"
-            android:label="Note Menu -->"
+            android:label="Заметки"
             android:screenOrientation="portrait"/>
 
         <activity
             android:name=".ArchiveActivity"
-            android:label="Archive"
+            android:label="Архив"
             android:screenOrientation="portrait"/>
 
     </application>
