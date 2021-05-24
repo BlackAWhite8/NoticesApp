@@ -20,9 +20,6 @@ public class CreateNoticeActivity extends AppCompatActivity implements View.OnCl
         textGetter = findViewById(R.id.noticeFieldForCreate);
         done = findViewById(R.id.doneButton);
         done.setOnClickListener(this);
-
-
-
     }
 
     @Override

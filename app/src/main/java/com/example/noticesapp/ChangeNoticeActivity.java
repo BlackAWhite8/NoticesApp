@@ -32,6 +32,7 @@ public class ChangeNoticeActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.change_notice_menu, menu);

@@ -42,6 +42,7 @@ public class ArchiveActivity extends AppCompatActivity  {
         for(int i = 0; i < len; i ++) {
             noticesList.add(archivePrefs.getString("item"+i,""));
         }
+
         adapter = new ArrayAdapter<>(this, R.layout.notices_list_item, noticesList);
         listView.setAdapter(adapter);
 
